@@ -1,4 +1,6 @@
-<script>
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js' type='text/javascript'></script> 
+  
+  <script>
   var api_endpoint = "https://rpm.newrelic.com/";
   var api_key  = "";
 
@@ -13,8 +15,7 @@
       return;
     }
     var r = xhr.responseText;
-    console.log( r );
-    document.write( r );
+    $("#hud").append( r );
   }
 
   //xhr.open("GET", api_endpoint + "accounts.xml?include=application_health", true);
@@ -26,10 +27,15 @@
 <style>
   #hud {
     width: 550px;
+    margin-bottom: 40px;
+  }
+  .config {
+    color: gray;
+    font-size: 65%;
+    font-family: sans-serif;
   }
 </style>
 
 <div id="hud">
-  This is the HUD.
-  <a href="config.html">change settings</a>
 </div>
+<a class="config" href="config.html">Change API key&hellip;</a>
