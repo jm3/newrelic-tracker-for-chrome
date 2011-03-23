@@ -1,0 +1,16 @@
+<script>
+  var api_endpoint = "https://rpm.newrelic.com/";
+  var api_key  = "in_XFER";
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = handleStateChange;
+  xhr.setRequestHeader("x-api-key", api_key);
+
+  xhr.open("GET", chrome.extension.getURL( api_endpoint + "/accounts.xml?include=application_health" ), true);
+  xhr.send();
+
+</script>
+
+This is the HUD.
+
+<a href="config.html">change settings</a>
