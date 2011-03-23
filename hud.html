@@ -1,16 +1,35 @@
 <script>
   var api_endpoint = "https://rpm.newrelic.com/";
-  var api_key  = "in_XFER";
+  var api_key  = "";
 
   var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = handleStateChange;
+
+  xhr.onreadystatechange = function( x ) {
+    console.log( xhr );
+    if( xhr.readyState != 4 )
+      return;
+    if( xhr.status != 200 ) {
+      console.log( "error! - " + xhr.status );
+      return;
+    }
+    var r = xhr.responseText;
+    console.log( r );
+    document.write( r );
+  }
+
+  //xhr.open("GET", api_endpoint + "accounts.xml?include=application_health", true);
+  xhr.open("GET", api_endpoint + "application_dashboard", true);
   xhr.setRequestHeader("x-api-key", api_key);
-
-  xhr.open("GET", chrome.extension.getURL( api_endpoint + "/accounts.xml?include=application_health" ), true);
   xhr.send();
-
 </script>
 
-This is the HUD.
+<style>
+  #hud {
+    width: 550px;
+  }
+</style>
 
-<a href="config.html">change settings</a>
+<div id="hud">
+  This is the HUD.
+  <a href="config.html">change settings</a>
+</div>
