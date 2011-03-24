@@ -42,3 +42,8 @@ a.config {
   display: block;
   margin-top: 20px;
 }
+
+#config #fine-print {
+  color: gray;
+  font-size: 60%;
+}
