@@ -1,7 +1,7 @@
 {
   "name": "Chrome Relic",
   "version": "1.0",
-  "description": "Track your app's or API's NewRelic performance in your browser.",
+  "description": "Track your application's performance directly from your browser, using NewRelic.",
   "icons": { "16": "destro.jpg",
              "48": "icon48.jpg",
              "128": "icon128.jpg" },
