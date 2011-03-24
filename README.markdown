@@ -1,8 +1,8 @@
-#  Chrome-Relic.
+![Cool features](https://github.com/jm3/chrome-relic/raw/master/header.png)
+
+# Chrome Relic.
 
 NewRelic performance monitoring within Google Chrome.
-
-![Cool features](https://github.com/jm3/chrome-relic/raw/master/header.png)
 
 ## License:
 
