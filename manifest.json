@@ -1,6 +1,6 @@
 {
   "name": "Chrome Relic",
-  "version": "1.0",
+  "version": "0.1.1",
   "description": "Track your application's performance directly from your browser, using NewRelic.",
   "icons": { "16": "destro.jpg",
              "48": "icon48.jpg",
@@ -12,8 +12,7 @@
   },
   "options_page": "config.html",
   "permissions": [
-    "https://rpm.newrelic.com/",
-    "idle"
+    "https://rpm.newrelic.com/"
   ]
 }
 
