@@ -2,33 +2,37 @@
   <head>
     <link href="theme.css" rel="stylesheet" type="text/css"> 
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js' type='text/javascript'></script> 
-    <script>
-      var api_endpoint = "https://rpm.newrelic.com/";
-      var newrelic_api_key = localStorage["newrelic_api_key"];
-      var xhr = new XMLHttpRequest();
-
-      xhr.onreadystatechange = function( x ) {
-        if( xhr.readyState != 4 )
-          return;
-        if( xhr.status != 200 ) {
-          console.log( "error! - " + xhr.status );
-          return;
-        }
-        $("#hud").empty();
-        $("#hud").append( xhr.responseText );
-      }
-      xhr.open("GET", api_endpoint + "application_dashboard", true);
-      xhr.setRequestHeader("x-api-key", newrelic_api_key);
-      xhr.send();
-
-    </script>
   </head>
   <body>
 
     <div id="hud">
-      Loading...
+      <div id="note">Loading...</div>
     </div>
-    <a class="config" href="config.html">Change API key&hellip;</a>
+    <a class="config" href="config.html">Enter NewRelic API key&hellip;</a>
+
+    <script>
+      var api_endpoint = "https://rpm.newrelic.com/";
+      var newrelic_api_key = localStorage["newrelic_api_key"];
+      if( newrelic_api_key ) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function( x ) {
+          if( xhr.readyState != 4 )
+            return;
+          if( xhr.status != 200 ) {
+            console.log( "error! - " + xhr.status );
+            return;
+          }
+          $("#hud").empty();
+          $("#hud").append( xhr.responseText );
+        }
+        xhr.open("GET", api_endpoint + "application_dashboard", true);
+        xhr.setRequestHeader("x-api-key", newrelic_api_key);
+        xhr.send();
+      } else {
+        $("#note").css("border", "5px solid red;");
+        $("#note").replaceWith("<h1>Please set up your API key.</h1>");
+      }
+    </script>
 
   </body>
 </html>
