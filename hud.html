@@ -8,7 +8,7 @@
     <div id="hud">
       <div id="note">Loading...</div>
     </div>
-    <a class="config" href="config.html">First, set up your NewRelic API key&hellip;</a>
+    <a class="config" href="config.html">Edit NewRelic API key</a>.
 
     <script>
       var api_endpoint = "https://rpm.newrelic.com/";
@@ -30,7 +30,7 @@
         xhr.send();
       } else {
         $("#note").css("border", "5px solid red;");
-        $("#note").replaceWith("<h1>Please set up your API key.</h1>");
+        $("#note").replaceWith("<h1>First, enter your NewRelic API key.</h1>");
       }
 
       var _gaq = _gaq || [];
