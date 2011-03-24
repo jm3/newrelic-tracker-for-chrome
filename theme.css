@@ -1,0 +1,37 @@
+#hud {
+  width: 550px;
+  margin-bottom: 20px;
+}
+
+* {
+  font-family: Helvetica, sans-serif;
+}
+
+a.config {
+  color: gray;
+  font-size: 65%;
+}
+
+#config form {
+  background-color: #f0f0f0;
+  padding: 30px;
+  width: 460px;
+  margin: 0 auto;
+  border-top-left-radius:15px;
+  border-top-right-radius:15px;
+  border-bottom-right-radius:15px;
+  border-bottom-left-radius:15px;
+  border: 3px solid #e0e0e0;
+}
+
+#config label {
+  font-weight: bold;
+  font-size: 140%;
+}
+
+#config input {
+  display: block;
+  font-size: 18px;
+  font-family: "courier new", monospace;
+  padding: 6px;
+}

@@ -1,9 +1,41 @@
+<html>
+  <head>
+    <title>Chrome Relic - Edit API Key</title>
+    <link href="theme.css" rel="stylesheet" type="text/css"> 
 
-<form action="#">
-  <label>
-    Enter your NewRelic API key:
-  </label>
-  <input name="api_key" id="api_key" maxlength="32" />
-</form>
+    <script type="text/javascript">
 
-<a href="hud.html">close</a>
+      // Saves options to localStorage.
+      function save_options() {
+        console.log( "saving" );
+        var newrelic_api_key = document.getElementById("newrelic_api_key").value;
+        localStorage["newrelic_api_key"] = newrelic_api_key;
+        window.location = "hud.html";
+      }
+
+      function restore_options() {
+        console.log( "restoring" );
+        var newrelic_api_key = localStorage["newrelic_api_key"];
+        if (!newrelic_api_key)
+          return;
+        var input_field = document.getElementById("newrelic_api_key");
+        input_field.value = newrelic_api_key;
+      }
+
+    </script>
+
+  </head>
+
+  <body onload="restore_options()" id="config">
+  <form>
+
+      <label>
+        Enter your NewRelic API key:
+        <input name="newrelic_api_key" id="newrelic_api_key" size="40" maxlength="64" />
+      </label>
+      <button onclick="save_options()">Update API key</button>
+  </form>
+
+  </body>
+</html>
+
