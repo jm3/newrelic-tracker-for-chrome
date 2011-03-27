@@ -1,4 +1,3 @@
-<!-- by John Manoogian III / jm3 -->
 <html>
   <head>
     <link href="theme.css" rel="stylesheet" type="text/css"> 
@@ -14,7 +13,24 @@
     <script>
       var api_endpoint = "https://rpm.newrelic.com/";
       var newrelic_api_key = localStorage["newrelic_api_key"];
+
+          /* TODO: is there a preferred app selected?
+           * TODO: fetch Apdex here:
+           */
+          var parsed_apdex = "1.0"; // FIXME
+          chrome.browserAction.setBadgeText( {text:parsed_apdex} );
+          var apdex_colors = {
+            safe:  [0,    0,  255,  225],
+            danger:[255,  0,  0,    255]
+          };
+
+          /* RGBA order */
+          chrome.browserAction.setBadgeBackgroundColor(
+            {color:apdex_colors.safe}
+          );
+
       if( newrelic_api_key ) {
+
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function( x ) {
           if( xhr.readyState != 4 )
@@ -23,6 +39,7 @@
             console.log( "error! - " + xhr.status );
             return;
           }
+
           $("#hud").empty();
           $("#hud").append( xhr.responseText );
         }
