@@ -32,7 +32,24 @@
         <input id="newrelic_api_key" size="40" />
       </label>
       <button onclick="save_options()">Update API key</button>
+
+      <div>
+        <label>
+          Select primary app:
+          <div>
+            <select disabled="true">
+              <option>
+              - Choose One -
+              </option>
+            </select>
+          </div>
+        </label>
+        <div>
+        Your primary app's Apdex will be displayed over the ChromeRelic icon.
+        </div>
+      </div>
     </form>
+
     <a href="hud.html">&laquo; back</a> 
 
     <div id="fine-print">
