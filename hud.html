@@ -1,7 +1,9 @@
+<!-- by John Manoogian III / jm3 -->
 <html>
   <head>
     <link href="theme.css" rel="stylesheet" type="text/css"> 
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js' type='text/javascript'></script> 
+    <script src='utils.js' type='text/javascript'></script> 
   </head>
   <body>
 
@@ -18,58 +20,39 @@
       var newrelic_api_key = localStorage["newrelic_api_key"];
       var newrelic_primary_app = localStorage["newrelic_primary_app"];
 
-      var api_endpoint = "https://rpm.newrelic.com/";
-      var danger_threshold = 0.8;
-
-      track_using_GA( 'UA-228926-7' );
-      update_apdex_text( newrelic_api_key ); // FIXME: timer here
+      track_using_GA( ga_account_id );
+      fetch_app_summary_stats( newrelic_api_key, process_summary_metrics ); // FIXME: timer here
       update_all_app_stats( newrelic_api_key );
 
-      function update_apdex_text( newrelic_api_key ) {
-        if( newrelic_api_key ) {
-          var xhr = new XMLHttpRequest();
-          xhr.onreadystatechange = function( x ) {
-            if( xhr.readyState != 4 ) return;
-            if( xhr.status != 200 ) { console.log( "error! - " + xhr.status ); return; }
+      function process_summary_metrics( xhr ) {
+        if( xhr.readyState != 4 ) return;
+        if( xhr.status != 200 ) { console.log( "error! - " + xhr.status ); return; }
 
-            // FIXME: is there a preferred app selected?
-            // If not, choose the FIRST app in the list #shrug
+        var apdex = 
+          $(xhr.responseXML).
+          find( "id:contains(" + newrelic_primary_app + ")" ).
+          parent().
+          find( "threshold_value[name='Apdex']" ).
+          attr( "metric_value" );
 
-            var primary_app_id = "666"; // FIXME: pull from localStorage
-            var apdex = 
-              $(xhr.responseXML).
-              find( "id:contains(" + primary_app_id + ")" ).
-              parent().
-              find( "threshold_value[name='Apdex']" ).
-              attr( "metric_value" );
+        if( isNaN( apdex ))
+          return;
 
-            if( isNaN( apdex ))
-              return;
+        chrome.browserAction.setBadgeText( {text:apdex} );
+        console.log( apdex );
 
-            var parsed_apdex = apdex;
-            chrome.browserAction.setBadgeText( {text:parsed_apdex} );
+        /* RGBA order */
+        var color, apdex_colors = {
+          safe:     [0,  155,    0,  255],
+          middling: [0,    0,  255,  225],
+          danger:   [255,  0,  0,    255]
+        };
 
-            /* RGBA order */
-            var color, apdex_colors = {
-              safe:     [0,  155,    0,  255],
-              middling: [0,    0,  255,  225],
-              danger:   [255,  0,  0,    255]
-            };
-
-            if( parseFloat( apdex ) < danger_threshold )
-              color = {color:apdex_colors.danger};
-            else
-              color = {color:apdex_colors.safe};
-            chrome.browserAction.setBadgeBackgroundColor( color );
-          }
-          xhr.open("GET", api_endpoint + "accounts.xml?include=application_health", true);
-          xhr.setRequestHeader("x-api-key", newrelic_api_key);
-          xhr.send();
-        } else {
-          $("#note").css("border", "5px solid red;");
-          $("#note").replaceWith("<h1>First, enter your NewRelic API key.</h1>");
-        }
-
+        if( parseFloat( apdex ) < danger_threshold )
+          color = {color:apdex_colors.danger};
+        else
+          color = {color:apdex_colors.safe};
+        chrome.browserAction.setBadgeBackgroundColor( color );
       }
 
       function update_all_app_stats( newrelic_api_key ) {
@@ -88,27 +71,6 @@
           $("#note").css("border", "5px solid red;");
           $("#note").replaceWith("<h1>First, enter your NewRelic API key.</h1>");
         }
-      }
-
-      function track_using_GA( account_id ) {
-        if( !account_id )
-          return;
-        /* GA tracking */
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', account_id]);
-        _gaq.push(['_setCampNameKey',   'version-1']);
-        _gaq.push(['_setCampMediumKey', 'google-chrome']);
-        _gaq.push(['_setCampSourceKey', 'chrome-relic-extension']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-          var ga = document.createElement('script');
-          ga.type = 'text/javascript';
-          ga.async = true;
-          ga.src = 'https://ssl.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(ga, s);
-        })();
       }
     </script>
 

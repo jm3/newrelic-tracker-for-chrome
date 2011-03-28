@@ -2,60 +2,43 @@
 <html>
   <head>
     <title>Chrome Relic - Edit API Key</title>
-    <link href="theme.css" rel="stylesheet" type="text/css"> 
-
-    <script type="text/javascript">
-
-      // Saves options to localStorage.
-      function save_options() {
-        var newrelic_api_key = document.getElementById("newrelic_api_key").value;
-        localStorage["newrelic_api_key"] = newrelic_api_key;
-        window.location = "hud.html";
-      }
-
-      function restore_options() {
-        var newrelic_api_key = localStorage["newrelic_api_key"];
-        if (!newrelic_api_key)
-          return;
-        var input_field = document.getElementById("newrelic_api_key");
-        input_field.value = newrelic_api_key;
-      }
-
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js' type='text/javascript'></script> 
+    <script src='utils.js' type='text/javascript'></script> 
+    <script>
+      track_using_GA( ga_account_id );
     </script>
-
+    <link href="theme.css" rel="stylesheet" type="text/css"> 
   </head>
 
   <body onload="restore_options()" id="config">
-    <form>
+    <label>
+      Enter your NewRelic API key:
+      <input id="newrelic_api_key" size="40" />
+    </label>
+    <button onclick="save_options()">Update API key</button>
+
+    <div id="newrelic_primary_app_ui">
       <label>
-        Enter your NewRelic API key:
-        <input id="newrelic_api_key" size="40" />
-      </label>
-      <button onclick="save_options()">Update API key</button>
-
-      <div>
-        <label>
-          Select primary app:
-          <div>
-            <select disabled="true">
-              <option>
-              - Choose One -
-              </option>
-            </select>
-          </div>
-        </label>
+        Select primary app:
         <div>
-        Your primary app's Apdex will be displayed over the ChromeRelic icon.
+          <select id="newrelic_primary_app" onchange="save_options()">
+            <option value="">- choose an application -</option>
+          </select>
         </div>
+      </label>
+      <div class="note">
+      Your primary app's <a target="_blank" href="http://en.wikipedia.org/wiki/Apdex" class="abbr">Apdex score*</a> will be displayed over the ChromeRelic icon.
       </div>
-    </form>
+    </div>
 
-    <a href="hud.html">&laquo; back</a> 
+    <div id="nav">
+      <a href="hud.html">&laquo; back</a> 
+    </div>
 
     <div id="fine-print">
       (note: if the window flashes after entering your key, click
       <b>Update API Key</b> then click the Chrome Relic icon and
-      Chrome will reset itself. This appears to be a weird Chrome bug.)
+      Chrome will reset itself. This appears to be some kind of weird Chrome bug.)
     </div>
 
   </body>

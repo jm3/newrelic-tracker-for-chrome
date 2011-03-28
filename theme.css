@@ -26,7 +26,7 @@ a.config {
 
 #config label {
   font-weight: bold;
-  font-size: 140%;
+  font-size: 100%;
 }
 
 #config input {
@@ -39,11 +39,28 @@ a.config {
 #config a {
   text-decoration: none;
   color: gray;
-  display: block;
   margin-top: 20px;
 }
 
 #config #fine-print {
   color: gray;
   font-size: 60%;
+}
+
+#config a.abbr {
+  color: #000;
+  text-decoration: underline;
+}
+
+#config #newrelic_primary_app_ui {
+  margin-top: 20px;
+}
+
+#config #newrelic_primary_app_ui .note {
+  margin-top: 10px;
+  font-size: 75%;
+}
+
+#config #nav {
+  margin-top: 25px;
 }
