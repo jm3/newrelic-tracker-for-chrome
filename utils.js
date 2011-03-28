@@ -34,13 +34,17 @@ function save_options() {
 }
 
 function parse_apps_and_populate_pulldown( xhr ) {
+  // reset the picker UPI in case of AJAX fail
+  $("#newrelic_primary_app_ui" ).css( "display", "none" );
   if( xhr.readyState != 4 ) return;
   if( xhr.status != 200 || (! xhr.responseXML) ) { console.log( "error! - " + xhr.status ); return; }
 
   var apps = $(xhr.responseXML).find( "accounts account applications application" );
 
-  // FIXME check localstorage
-  if( apps.size() <= 1 )
+  //if( apps.size() < 1 )
+
+  // FIXME: check localstorage and reset iff nec.
+  if( apps.size() == 1 )
     return;
 
   var index_set = false;
@@ -60,7 +64,7 @@ function parse_apps_and_populate_pulldown( xhr ) {
   if( ! index_set )
     localStorage["newrelic_primary_app"] = $(apps[0]).find( "id" ).text();
 
-  $("#newrelic_primary_app" ).css( 'display', 'block' );
+  $("#newrelic_primary_app_ui" ).css( "display", "block" );
 }
 
 function restore_options() {
