@@ -1,6 +1,6 @@
 {
   "name": "NewRelic for Google Chrome",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Track your web app's performance from your browser using NewRelic.",
   "icons": { "16": "destro.jpg",
              "48": "icon48.jpg",
