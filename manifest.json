@@ -1,7 +1,7 @@
 {
   "name": "NewRelic for Google Chrome",
-  "version": "0.1.2",
-  "description": "Track your web app's performance from your browser using NewRelic.",
+  "version": "0.1.3",
+  "description": "Track how well your web app satisfies users in real time. Display the current Apdex user experience / performance score directly over your app icon to see how your app is doing, or click to view a detailed performance status of all your web apps.",
   "icons": { "16": "destro.jpg",
              "48": "icon48.jpg",
              "128": "icon128.jpg" },
@@ -10,6 +10,7 @@
     "default_icon": "destro.jpg",
     "popup":        "hud.html"
   },
+  "background_page": "daemon.html",
   "options_page": "config.html",
   "permissions": [
     "https://rpm.newrelic.com/"

@@ -1,15 +1,64 @@
 /* by John Manoogian III / jm3 */
-console.log( "loading utils..." );
-
 var api_endpoint = "https://rpm.newrelic.com/";
 var danger_threshold = 0.8;
 var ga_account_id = 'UA-228926-7';
+var groundhog_seconds = 60;
 
 function fetch_app_summary_stats( newrelic_api_key, callback ) {
   if( newrelic_api_key ) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() { callback(xhr) };
     xhr.open("GET", api_endpoint + "accounts.xml?include=application_health", true);
+    xhr.setRequestHeader("x-api-key", newrelic_api_key);
+    xhr.send();
+  } else {
+    $("#note").css("border", "5px solid red;");
+    $("#note").replaceWith("<h1>First, enter your NewRelic API key.</h1>");
+  }
+}
+
+function process_summary_metrics( xhr ) {
+  if( xhr.readyState != 4 ) return;
+  if( xhr.status != 200 ) { console.log( "error! - " + xhr.status ); return; }
+  var newrelic_primary_app = localStorage["newrelic_primary_app"];
+
+  var apdex = 
+    $(xhr.responseXML).
+    find( "id:contains(" + newrelic_primary_app + ")" ).
+    parent().
+    find( "threshold_value[name='Apdex']" ).
+    attr( "metric_value" );
+
+  if( isNaN( apdex ))
+    return;
+
+  chrome.browserAction.setBadgeText( {text:apdex} );
+  console.log( apdex );
+
+  /* RGBA order */
+  var color, apdex_colors = {
+    safe:     [0,  155,    0,  255],
+    middling: [0,    0,  255,  225],
+    danger:   [255,  0,  0,    255]
+  };
+
+  if( parseFloat( apdex ) < danger_threshold )
+    color = {color:apdex_colors.danger};
+  else
+    color = {color:apdex_colors.safe};
+  chrome.browserAction.setBadgeBackgroundColor( color );
+}
+
+function display_all_app_stats( newrelic_api_key ) {
+  if( newrelic_api_key ) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function( x ) {
+      if( xhr.readyState != 4 ) return;
+      if( xhr.status != 200 ) { console.log( "error! - " + xhr.status ); return; }
+      $("#hud").empty();
+      $("#hud").append( xhr.responseText );
+    }
+    xhr.open("GET", api_endpoint + "application_dashboard", true);
     xhr.setRequestHeader("x-api-key", newrelic_api_key);
     xhr.send();
   } else {
@@ -97,5 +146,3 @@ function track_using_GA( account_id ) {
   })();
 }
 
-
-console.log( "...done!" );

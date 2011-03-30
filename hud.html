@@ -21,57 +21,7 @@
       var newrelic_primary_app = localStorage["newrelic_primary_app"];
 
       track_using_GA( ga_account_id );
-      fetch_app_summary_stats( newrelic_api_key, process_summary_metrics ); // FIXME: timer here
-      update_all_app_stats( newrelic_api_key );
-
-      function process_summary_metrics( xhr ) {
-        if( xhr.readyState != 4 ) return;
-        if( xhr.status != 200 ) { console.log( "error! - " + xhr.status ); return; }
-
-        var apdex = 
-          $(xhr.responseXML).
-          find( "id:contains(" + newrelic_primary_app + ")" ).
-          parent().
-          find( "threshold_value[name='Apdex']" ).
-          attr( "metric_value" );
-
-        if( isNaN( apdex ))
-          return;
-
-        chrome.browserAction.setBadgeText( {text:apdex} );
-        console.log( apdex );
-
-        /* RGBA order */
-        var color, apdex_colors = {
-          safe:     [0,  155,    0,  255],
-          middling: [0,    0,  255,  225],
-          danger:   [255,  0,  0,    255]
-        };
-
-        if( parseFloat( apdex ) < danger_threshold )
-          color = {color:apdex_colors.danger};
-        else
-          color = {color:apdex_colors.safe};
-        chrome.browserAction.setBadgeBackgroundColor( color );
-      }
-
-      function update_all_app_stats( newrelic_api_key ) {
-        if( newrelic_api_key ) {
-          var xhr = new XMLHttpRequest();
-          xhr.onreadystatechange = function( x ) {
-            if( xhr.readyState != 4 ) return;
-            if( xhr.status != 200 ) { console.log( "error! - " + xhr.status ); return; }
-            $("#hud").empty();
-            $("#hud").append( xhr.responseText );
-          }
-          xhr.open("GET", api_endpoint + "application_dashboard", true);
-          xhr.setRequestHeader("x-api-key", newrelic_api_key);
-          xhr.send();
-        } else {
-          $("#note").css("border", "5px solid red;");
-          $("#note").replaceWith("<h1>First, enter your NewRelic API key.</h1>");
-        }
-      }
+      display_all_app_stats( newrelic_api_key );
     </script>
 
   </body>
