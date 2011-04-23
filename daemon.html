@@ -1,0 +1,17 @@
+<!-- by John Manoogian III / jm3 -->
+<html>
+  <head>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js' type='text/javascript'></script> 
+    <script src='utils.js' type='text/javascript'></script> 
+    <script>
+      var daemon = daemon || new function() {
+        var newrelic_api_key = localStorage["newrelic_api_key"];
+        setInterval ( function() { fetch_app_summary_stats( newrelic_api_key, process_summary_metrics );}, groundhog_seconds * 1000 );
+      };
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
+
