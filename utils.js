@@ -67,19 +67,26 @@ function display_all_app_stats( newrelic_api_key ) {
   }
 }
 
-function save_options() {
-  var newrelic_api_key = $("#newrelic_api_key").val();
-  if( newrelic_api_key && newrelic_api_key != localStorage["newrelic_api_key"] ) {
-    localStorage["newrelic_api_key"] = newrelic_api_key;
-    console.log( "display feedback that " + newrelic_api_key + " was saved successfully to local storage" ); // FIXME
+function persist_field( f ) {
+  var val = $("#" + f).val();
+  if( val && val != localStorage[f] ) {
+    localStorage[f] = val;
+    console.log( "display feedback that " + val + " was saved successfully to " + f + " in local storage" ); // FIXME
   }
+}
 
-  var newrelic_primary_app = $('#newrelic_primary_app option:selected').val();
-  if( newrelic_primary_app && newrelic_primary_app != localStorage["newrelic_primary_app"] ) {
-    console.log( "menu says: " + $('#newrelic_primary_app option:selected').val());
-    localStorage["newrelic_primary_app"] = newrelic_primary_app;
-    console.log( "display feedback that " + newrelic_primary_app + " was saved successfully to local storage" ); // FIXME
+function persist_select( s ) {
+  var val = $('#' + s + ' option:selected').val();
+  if( val && val != localStorage[s] ) {
+    console.log( "menu was: " + $('#' + s + ' option:selected').val());
+    localStorage[s] = val;
+    console.log( "display feedback that " + val + " was saved successfully to " + s + " local storage" ); // FIXME
   }
+}
+
+function save_options() {
+  persist_field( "newrelic_api_key" )
+  persist_select( "newrelic_primary_app" )
 }
 
 function parse_apps_and_populate_pulldown( xhr ) {
