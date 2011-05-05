@@ -1,7 +1,7 @@
 {
   "name": "NewRelic for Google Chrome",
   "version": "0.3.0",
-  "description": "Track user satisfaction in real time with NewRelic's Apdex, or click to view the full performance status of all your web apps. Now with Hoptoad support!",
+  "description": "Track user satisfaction across multiple apps in real time with NewRelic's Apdex. Now with sexy Hoptoad exception tracking!",
   "icons": { "16":  "/images/icons/app-16.jpg",
              "48":  "/images/icons/app-48.jpg",
              "128": "/images/icons/app-128.jpg" },
