@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- by John Manoogian III / jm3 -->
+<html>
+  <head>
+    <title>Chrome Relic - Edit API Key</title>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js' type='text/javascript'></script> 
+    <script src='/utils.js' type='text/javascript'></script> 
+    <script>
+      track_using_GA();
+    </script>
+    <link href="theme.css" rel="stylesheet" type="text/css"> 
+  </head>
+
+  <body onload="restore_options()" id="config">
+
+    <div id="performance-tracking">
+      <h1>Monitor Performance</h1>
+
+      <label>
+        NewRelic API key
+        <input id="newrelic_api_key" size="40" tabindex="1" />
+      </label>
+      <div>
+        <a href="http://newrelic.com" tabindex="7" target="newrelic">(Log in to New Relic to get your API key.)</a>
+      </div>
+
+      <div id="newrelic_primary_app_ui">
+        <label class="disabled">
+          Always show 
+          <a target="_blank" href="http://en.wikipedia.org/wiki/Apdex" tabindex="8" class="abbr">Apdex score*</a>
+          score for:
+          <div>
+            <select id="newrelic_primary_app" onchange="save_options()" disabled="true" tabindex="2">
+              <option value="">- choose an application -</option>
+            </select>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div id="hoptoad-settings">
+      <h1>Track Errors</h1>
+
+      <label>
+        Hoptoad account name
+        <input id="hoptoad_account_name" size="40" tabindex="3" />
+      </label>
+      
+      <label>
+        Hoptoad auth token
+        <input id="hoptoad_auth_token" size="40" tabindex="4" />
+      </label>
+      <div>
+        <!-- FIXME: fix tab order -->
+        <a href="http://hoptoadapp.com/pages/home" tabindex="9" target="hoptoad">(Log in to Hoptoad to get your auth token.)</a>
+      </div>
+    </div>
+
+    <button onclick="save_options()"><a tabindex="5">Save settings</a></button>
+      
+
+    <div id="nav">
+      <a href="hud.html" tabindex="6">&laquo; back</a> 
+    </div>
+
+  </body>
+</html>
+

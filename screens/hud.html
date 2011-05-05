@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- by John Manoogian III / jm3 -->
+<html>
+  <head>
+    <link href="theme.css" rel="stylesheet" type="text/css"> 
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js' type='text/javascript'></script> 
+    <script src='/utils.js' type='text/javascript'></script> 
+  </head>
+  <body>
+    <div id="welcome">
+      <h1>
+        Chrome Relic gives you instant status on all your misbehaving web-apps in one easy extension.
+      </h1>
+
+      <div id="setup-well">
+
+        <h2>
+          In order to achieve application-tracking nirvana, you’re going
+          to enter a few API-related settings on the next screen:
+        </h2>
+
+        <button>
+          <a href="config.html" tabindex="1">Performance Tracking Settings</a>
+        </button>
+        
+        <button class="red">
+          <a href="config.html" tabindex="2">Exception Monitoring Settings</a>
+        </button>
+
+      </div>
+    </div>
+
+    <div id="hud">
+      <img src="/images/spinner.gif" id="spinner" />
+    </div>
+
+    <div id="footer" style="display: none;">
+      Like this?
+      <a href="http://proof.ly/get-chrome-relic" target="_blank">Your should rate us positively here!</a>
+      &nbsp;
+      <a class="config" href="config.html">Edit settings &raquo;</a>
+    </div>
+
+    <script>
+      setup_ux();
+      track_using_GA();
+      NEWRELIC.display_all_app_stats();
+    </script>
+
+  </body>
+</html>
