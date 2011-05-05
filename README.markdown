@@ -1,8 +1,8 @@
-![Cool features](http://cl.ly/11233G2v422N0A1A3r3Z/Screen_shot_2011-05-05_at_2.38.45_AM.png)
+![Cool features](https://github.com/jm3/chrome-relic/raw/master/images/screenshot-setup.png)
 
 ## Chrome Relic.
 
-![Sexy screenshots](https://github.com/jm3/chrome-relic/raw/master/images/screenshot.png)
+![Sexy screenshots](https://github.com/jm3/chrome-relic/raw/master/images/screenshot-stats.png)
 
 NewRelic performance monitoring within Google Chrome.
 
