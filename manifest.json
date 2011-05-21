@@ -1,7 +1,8 @@
 {
-  "name": "NewRelic for Google Chrome",
-  "version": "0.4.0",
-  "description": "Track user happiness and app performance for all your Rails apps in real-time with NewRelic and Hoptoad. Now supports Heroku too!",
+  "name":           "__MSG_ext_name__",
+  "description":    "__MSG_ext_desc__",
+  "version":        "0.4.0",
+  "default_locale": "en",
   "icons": { "16":  "/images/icons/app-16.jpg",
              "48":  "/images/icons/app-48.jpg",
              "128": "/images/icons/app-128.jpg" },

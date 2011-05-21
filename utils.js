@@ -279,6 +279,10 @@ function get_param(name) {
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
+function m(m) {
+  return chrome.i18n.getMessage(m);
+}
+
 function track_using_GA() {
   if( !( account_id = get_ga_account_id()))
     return;
