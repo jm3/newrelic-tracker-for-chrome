@@ -6,6 +6,11 @@
 
 NewRelic performance monitoring within Google Chrome.
 
+## Translations available:
+ * English
+
+(Translations needed: am, es, fr, jp, pt)
+
 ## License:
 
 [The Unlicense](http://unlicense.org) (aka: public domain) 
