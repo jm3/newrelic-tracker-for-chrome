@@ -6,12 +6,16 @@
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js' type='text/javascript'></script> 
     <script src='/utils.js' type='text/javascript'></script> 
     <script>
-      track_using_GA();
+      $(document).ready(function() {
+        restore_options();
+        $("#save_button").click( save_options );
+        track_using_GA();
+      });
     </script>
     <link href="theme.css" rel="stylesheet" type="text/css"> 
   </head>
 
-  <body onload="restore_options()" id="config">
+  <body id="config">
 
     <div id="performance-tracking">
       <h1>Monitor Performance</h1>
@@ -56,9 +60,8 @@
       </div>
     </div>
 
-    <button onclick="save_options()"><a tabindex="5">Save settings</a></button>
+    <button id="save_button" onclick="save_options()"><a tabindex="5">Save settings</a></button>
       
-
     <div id="nav">
       <a href="hud.html" tabindex="6">&laquo; back</a> 
     </div>
