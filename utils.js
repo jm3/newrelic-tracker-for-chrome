@@ -222,6 +222,38 @@ function signal_error( s ) {
   return undefined;
 }
 
+/* loop over all elements with @class attrs and look for any localizables,
+ * and set their value from the locale-appropriate messages.json
+ */
+function localize() {
+  var localized_elements = 0;
+  $("[class]").each( function() {
+    var element = this;
+    $.each(element.attributes, function(i, attrib){
+      if( attrib.name == "class" ) {
+
+        var class_list = new Array();
+        if( attrib.value.indexOf( " " ) != -1 )
+          class_list = attrib.value.split( " " );
+        else
+          class_list[0] = attrib.value;
+
+        for( var j = 0; j < class_list.length; j++ ) {
+          var val = class_list[j];
+
+          if( val.match( /^l_/ )) {
+            localized_elements ++;
+            var key = val.replace( /^l_/, '' );
+            $(element).text( chrome.i18n.getMessage( key ));
+            c( "stuffing " + chrome.i18n.getMessage( key ) + " into element with class " + val );
+          }
+        }
+      }
+    });
+  });
+  c( "localized " + localized_elements + " element(s)");
+}
+
 function setup_ux() {
   if( !NEWRELIC.api_key()) {
     $("#hud").hide();
@@ -232,6 +264,7 @@ function setup_ux() {
     $("#footer").show();
     $("#welcome").hide();
   }
+  localize();
 }
 
 function persist_fields( a ) {
