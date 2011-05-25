@@ -7,6 +7,7 @@
     <script src='/utils.js' type='text/javascript'></script> 
     <script>
       $(document).ready(function() {
+        localize();
         restore_options();
         $("#save_button").click( save_options );
         track_using_GA();
@@ -18,24 +19,24 @@
   <body id="config">
 
     <div id="performance-tracking">
-      <h1>Monitor Performance</h1>
+      <h1 class="l_performance_tracking"></h1>
 
       <label>
-        NewRelic API key
+        <span class="l_performance_API_key"></span>
         <input id="newrelic_api_key" size="40" tabindex="1" />
       </label>
       <div>
-        <a href="http://newrelic.com" tabindex="7" target="newrelic">(Log in to New Relic to get your API key.)</a>
+        <a href="http://newrelic.com" class="l_performance_API_key_location_help" tabindex="7" target="newrelic"></a>
       </div>
 
       <div id="newrelic_primary_app_ui">
         <label class="disabled">
-          Always show 
+          <span class="l_display"></span>
           <a target="_blank" href="http://en.wikipedia.org/wiki/Apdex" tabindex="8" class="abbr">Apdex score*</a>
-          score for:
+          <span class="l_for"></span>:
           <div>
             <select id="newrelic_primary_app" onchange="save_options()" disabled="true" tabindex="2">
-              <option value="">- choose an application -</option>
+              <option value="" class="l_choose_app_to_monitor"></option>
             </select>
           </div>
         </label>
@@ -43,27 +44,27 @@
     </div>
 
     <div id="hoptoad-settings">
-      <h1>Track Errors</h1>
+      <h1 class="l_error_monitoring"></h1>
 
       <label>
-        Hoptoad account name
+        <span class="l_error_tracking_account_name"></span>
         <input id="hoptoad_account_name" size="40" tabindex="3" />
       </label>
-      
+
       <label>
-        Hoptoad auth token
+        <span class="l_error_tracking_auth_token"></span>
         <input id="hoptoad_auth_token" size="40" tabindex="4" />
       </label>
+
       <div>
-        <!-- FIXME: fix tab order -->
-        <a href="http://hoptoadapp.com/pages/home" tabindex="9" target="hoptoad">(Log in to Hoptoad to get your auth token.)</a>
+        <a href="http://hoptoadapp.com/pages/home" class="l_error_API_key_location_help" tabindex="9" target="hoptoad"></a>
       </div>
     </div>
 
-    <button id="save_button" onclick="save_options()"><a tabindex="5">Save settings</a></button>
-      
+    <button id="save_button" onclick="save_options()"><a tabindex="5" class="l_save_settings"></a></button>
+
     <div id="nav">
-      <a href="hud.html" tabindex="6">&laquo; back</a> 
+      <a href="hud.html" class="l_back" tabindex="6"></a> 
     </div>
 
   </body>

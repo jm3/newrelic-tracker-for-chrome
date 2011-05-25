@@ -30,13 +30,23 @@
     "description": "Button label to let the user save her settings"
   },
 
-  "verb_go_back": { "message":
-    "Back",
-    "description": "button to go back to previous screen"
+  "back": { "message":
+    "$ARROW$ Back",
+    "description": "button to go back to previous screen",
+    "placeholders": {
+      "arrow": {
+        "content": "&laquo;"
+      }
+    }
   },
 
-  "noun_API_key": {"message":
-    "API key"
+  "performance_API_key": {"message":
+    "$PERFORMANCE_TRACKER_API$ key",
+    "placeholders": {
+      "performance_tracker_API": {
+        "content": "NewRelic RPM"
+      }
+    }
   },
 
   "error_tracking_account_name": {"message":
@@ -73,7 +83,7 @@
     "Exception Tracking Settings"
   },
 
-  "API_key_location_help_text": { "message":
+  "performance_API_key_location_help": { "message":
     "(Log in to $PERFORMANCE_TRACKER$ to get your API key.)",
     "placeholders": {
       "performance_tracker": {
@@ -82,8 +92,25 @@
     }
   },
 
+  "error_API_key_location_help": { "message":
+    "(Log in to $ERROR_TRACKER$ to get your API key.)",
+    "placeholders": {
+      "error_tracker": {
+        "content": "Hoptoad"
+      }
+    }
+  },
+
   "choose_app_to_monitor": { "message":
     "Choose an application"
+  },
+
+  "display": { "message":
+    "Display"
+  },
+
+  "for": { "message":
+    "for"
   },
 
   "primary_app_selector_menu_label": { "message":
