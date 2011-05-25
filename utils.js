@@ -245,7 +245,6 @@ function localize() {
             localized_elements ++;
             var key = val.replace( /^l_/, '' );
             $(element).text( chrome.i18n.getMessage( key ));
-            c( "stuffing " + chrome.i18n.getMessage( key ) + " into element with class " + val );
           }
         }
       }
@@ -310,10 +309,6 @@ function restore_options() {
 function get_param(name) {
   var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-}
-
-function m(m) {
-  return chrome.i18n.getMessage(m);
 }
 
 function track_using_GA() {
