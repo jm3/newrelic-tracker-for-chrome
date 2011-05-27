@@ -1,7 +1,6 @@
 {
-
-  "ext_desc": { "message":
-    "Track app performance and user happiness for all your web apps in real-time using $PERFORMANCE_TRACKER$ and $ERROR_TRACKER$. Now with $HEROKU$ support!",
+  "ext_desc": {
+    "message": "Track app performance and user happiness for all your web apps in real-time using $PERFORMANCE_TRACKER$ and $ERROR_TRACKER$. Now with $HEROKU$ support!",
     "placeholders": {
       "performance_tracker":  { "content": "NewRelic RPM" },
       "error_tracker":        { "content": "Hoptoad" },
@@ -9,29 +8,29 @@
     }
   },
 
-  "ext_headline": { "message":
-    "$EXT_NAME$ gives you instant status on all your misbehaving web-apps in one easy extension.",
+  "ext_headline": {
+    "message": "$EXT_NAME$ gives you instant status on all your misbehaving web-apps in one easy extension.",
     "placeholders": {
       "ext_name":  { "content": "Chrome Relic" }
     }
   },
 
-  "ext_welcome_first_step": { "message":
-    "In order to achieve application-tracking nirvana, you’re going to enter a few API-related settings on the next screen:"
+  "ext_welcome_first_step": {
+    "message": "In order to achieve application-tracking nirvana, you’re going to enter a few API-related settings on the next screen:"
   },
 
-  "edit_settings": { "message":
-    "Edit Settings",
+  "edit_settings": {
+    "message": "Edit Settings",
     "description": "Button label to let the user edit her settings"
   },
 
-  "save_settings": { "message":
-    "Save Settings",
+  "save_settings": {
+    "message": "Save Settings",
     "description": "Button label to let the user save her settings"
   },
 
-  "back": { "message":
-    "$ARROW$ Back",
+  "back": {
+    "message": "$ARROW$ Back",
     "description": "button to go back to previous screen",
     "placeholders": {
       "arrow": {
@@ -40,8 +39,8 @@
     }
   },
 
-  "performance_API_key": {"message":
-    "$PERFORMANCE_TRACKER_API$ key",
+  "performance_API_key": {
+	"message": "$PERFORMANCE_TRACKER_API$ key",
     "placeholders": {
       "performance_tracker_API": {
         "content": "NewRelic RPM"
@@ -49,8 +48,8 @@
     }
   },
 
-  "error_tracking_account_name": {"message":
-    "$TRACKING_SERVICE$ account name",
+  "error_tracking_account_name": {
+	"message": "$TRACKING_SERVICE$ account name",
     "placeholders": {
       "tracking_service": {
         "content": "Hoptoad"
@@ -58,8 +57,8 @@
     }
   },
 
-  "error_tracking_auth_token": {"message":
-    "$TRACKING_SERVICE$ auth token",
+  "error_tracking_auth_token": {
+	"message": "$TRACKING_SERVICE$ auth token",
     "placeholders": {
       "tracking_service": {
         "content": "Hoptoad"
@@ -67,24 +66,26 @@
     }
   },
 
-  "performance_tracking": { "message":
-    "Performance Tracking"
+  "performance_tracking": {
+    "message": "Performance Tracking"
   },
 
-  "performance_tracking_settings": { "message":
-    "Performance Tracking Settings"
+  "performance_tracking_settings": {
+    "message": "Performance Tracking Settings"
   },
 
-  "error_monitoring": { "message":
-    "Exception Tracking"
+  "error_monitoring": {
+    "message": "Exception Tracking"
   },
 
-  "error_monitoring_settings": { "message":
-    "Exception Tracking Settings"
+  "error_monitoring_settings": {
+    "message": "Error Tracking Settings",
+    "description": "user settings related to errors"
   },
 
-  "performance_API_key_location_help": { "message":
-    "(Log in to $PERFORMANCE_TRACKER$ to get your API key.)",
+  "performance_API_key_location_help": {
+    "message": "(Log in to $PERFORMANCE_TRACKER$ to get your API key.)",
+    "description": "tell user where to find their API key",
     "placeholders": {
       "performance_tracker": {
         "content": "NewRelic RPM"
@@ -92,8 +93,9 @@
     }
   },
 
-  "error_API_key_location_help": { "message":
-    "(Log in to $ERROR_TRACKER$ to get your API key.)",
+  "error_API_key_location_help": {
+    "message": "(Log in to $ERROR_TRACKER$ to get your API key.)",
+    "description": "tell user where to find their API key",
     "placeholders": {
       "error_tracker": {
         "content": "Hoptoad"
@@ -101,20 +103,23 @@
     }
   },
 
-  "choose_app_to_monitor": { "message":
-    "Choose an application"
+  "choose_app_to_monitor": {
+    "message": "Choose an application",
+    "description": "let user choose an application from a list"
   },
 
-  "display": { "message":
-    "Display"
+  "display": {
+    "message": "Display",
+    "description": "as in, show"
   },
 
-  "for": { "message":
-    "for"
+  "for": {
+    "message": "for",
+    "description": "as in, 'this is used FOR that.'"
   },
 
-  "primary_app_selector_menu_label": { "message":
-    "Always show $APDEX_SCORE$* for:",
+  "primary_app_selector_menu_label": {
+    "message": "Always show $APDEX_SCORE$* for:",
     "description": "show the user which of their apps will be displayed.",
     "placeholders": {
       "apdex_score": {
@@ -123,13 +128,13 @@
     }
   },
 
-  "like_this": { "message":
-    "Like this?",
+  "like_this": {
+    "message": "Like this?",
     "description": "Do you like this?"
   },
 
-  "review_us": { "message":
-    "You should rate us positively here!",
+  "review_us": {
+    "message": "You should rate us positively here!",
     "description": "request the user to review this extension (eg. 'Five stars!'"
   }
 
