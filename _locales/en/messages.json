@@ -75,7 +75,7 @@
   },
 
   "error_monitoring": {
-    "message": "Exception Tracking"
+    "message": "Error Tracking"
   },
 
   "error_monitoring_settings": {
@@ -136,6 +136,44 @@
   "review_us": {
     "message": "You should rate us positively here!",
     "description": "request the user to review this extension (eg. 'Five stars!'"
+  },
+
+  "long_description_p1": {
+    "message": "$PERFORMANCE_TRACKER$ is an awesome analytics / monitoring service for server side developers, dev-ops folks, and network engineers, and $ERROR_TRACKER$ from $ERROR_TRACKER_MAKER$ is a killer way to manage error notifications for your $FRAMEWORK$ apps. The problem is that $PERFORMANCE_TRACKER$ only works if you watch it like a hawk, and $ERROR_TRACKER$ fills up your inbox with errors — not cool.",
+    "description": "app description, paragraph 1",
+    "placeholders": {
+      "performance_tracker":  { "content": "NewRelic RPM" },
+      "error_tracker":        { "content": "Hoptoad" },
+      "error_tracker_maker":  { "content": "Thoughtbot" },
+      "framework":            { "content": "Rails" }
+    }
+  },
+
+  "long_description_p2": {
+    "message": "Now, with $EXT_NAME$, you can get up to the second app performance stats from your API or web application, all without leaving $DISTRACTING_WEBSITE$ (or whatever else you're browsing).",
+    "description": "app description, paragraph 2",
+    "placeholders": {
+      "ext_name":             { "content": "NewRelic + Hoptoad for Google Chrome™" },
+      "distracting_website":  { "content": "Hacker News" }
+    }
+  },
+
+  "long_description_p3": {
+    "message": "We use an HTTPS connection to connect to $PERFORMANCE_TRACKER$'s API securely and display your apps' performance metrics in context. We also display real-time $HOST_BROWSER$ notifications via $ERROR_TRACKER$ when your app encounters a production error. Monitor up to 10 apps at once.",
+    "description": "app description, paragraph 3",
+    "placeholders": {
+      "performance_tracker":  { "content": "NewRelic RPM" },
+      "error_tracker":        { "content": "Hoptoad" },
+      "host_browser":         { "content": "Chrome" }
+    }
+  },
+
+  "long_description_p4": {
+    "message": "$EXT_NAME$ can track apps written in Erlang, Java, Javascript, MySQL, PHP, Python, Ruby, Rails, Redis, or Scala, hosted on Apache, Nginx, Node.js, Unicorn, or Phusion Passenger web application servers.",
+    "description": "app description, paragraph 4",
+    "placeholders": {
+      "ext_name": { "content": "NewRelic + Hoptoad for Google Chrome™" }
+    }
   }
 
 }
