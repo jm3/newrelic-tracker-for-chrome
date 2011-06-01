@@ -1,0 +1,179 @@
+{
+  "ext_desc": {
+    "message": "$PERFORMANCE_TRACKER$と$ERROR_TRACKER$を使って、トラック・アプリ・パフォーマンス、そしてユーザーの幸せを全てのウエブ・アプリへリアルタイムで！$HEROKU$のサポートを今から！",
+    "placeholders": {
+      "performance_tracker":  { "content": "NewRelic RPM" },
+      "error_tracker":        { "content": "Hoptoad" },
+      "heroku":               { "content": "Heroku" }
+    }
+  },
+
+  "ext_headline": {
+    "message": "$EXT_NAME$は全てのウエブ・アプリケーションの不正行為を簡単な拡張機能で即時にステイタスを作動させる。",
+    "placeholders": {
+      "ext_name":  { "content": "Chrome Relic" }
+    }
+  },
+
+  "ext_welcome_first_step": {
+    "message": "アプリケーション・トラッキング・ニルヴーナを達成するには、次の少数のエーピーアイ関連設定スクリーンで行ってください:"
+  },
+
+  "edit_settings": {
+    "message": "設定を編集する",
+    "description": "Button label to let the user edit her settings"
+  },
+
+  "save_settings": {
+    "message": "設定を保存する",
+    "description": "Button label to let the user save her settings"
+  },
+
+  "back": {
+    "message": "$ARROW$戻る",
+    "description": "button to go back to previous screen",
+    "placeholders": {
+      "arrow": {
+        "content": "&laquo;"
+      }
+    }
+  },
+
+  "performance_API_key": {
+	"message": "$PERFORMANCE_TRACKER_API$　キー",
+    "placeholders": {
+      "performance_tracker_API": {
+        "content": "NewRelic RPM"
+      }
+    }
+  },
+
+  "error_tracking_account_name": {
+	"message": "$TRACKING_SERVICE$ アカウント名",
+    "placeholders": {
+      "tracking_service": {
+        "content": "Hoptoad"
+      }
+    }
+  },
+
+  "error_tracking_auth_token": {
+	"message": "$TRACKING_SERVICE$ オートトーケン",
+    "placeholders": {
+      "tracking_service": {
+        "content": "Hoptoad"
+      }
+    }
+  },
+
+  "performance_tracking": {
+    "message": "パフォーマンストラッキング"
+  },
+
+  "performance_tracking_settings": {
+    "message": "パフォーマンストラッキングの設定"
+  },
+
+  "error_monitoring": {
+    "message": "エラートラッキング"
+  },
+
+  "error_monitoring_settings": {
+    "message": "エラートラッキングの設定",
+    "description": "user settings related to errors"
+  },
+
+  "performance_API_key_location_help": {
+    "message": "($PERFORMANCE_TRACKER$　へログインしてエイピーアイキーを取得する。)",
+    "description": "tell user where to find their API key",
+    "placeholders": {
+      "performance_tracker": {
+        "content": "NewRelic RPM"
+      }
+    }
+  },
+
+  "error_API_key_location_help": {
+    "message": "($ERROR_TRACKER$　へログインしてエイピーアイキーを取得する。)",
+    "description": "tell user where to find their API key",
+    "placeholders": {
+      "error_tracker": {
+        "content": "Hoptoad"
+      }
+    }
+  },
+
+  "choose_app_to_monitor": {
+    "message": "アプリケーションを選択する",
+    "description": "let user choose an application from a list"
+  },
+
+  "display": {
+    "message": "表示する",
+    "description": "as in, show"
+  },
+
+  "for": {
+    "message": "のために",
+    "description": "as in, 'this is used FOR that.'"
+  },
+
+  "primary_app_selector_menu_label": {
+    "message": "常に$APDEX_SCORE$*をに表示する:",
+    "description": "show the user which of their apps will be displayed.",
+    "placeholders": {
+      "apdex_score": {
+        "content": "$1"
+      }
+    }
+  },
+
+  "like_this": {
+    "message": "好みですか？",
+    "description": "Do you like this?"
+  },
+
+  "review_us": {
+    "message": "ここでポジティブに評価してください！",
+    "description": "request the user to review this extension (eg. 'Five stars!'"
+  },
+
+  "long_description_p1": {
+    "message": "$PERFORMANCE＿TRACKER$はサーバー開発者側そしデヴーオプスフォークス、エンジニアネットワークにとってもすさまじく分析的なモニタリングサーバーであり、また、$ERROR_TRACKER_MAKER$ による$ERROR＿TRACKER$ は$FRAMEWORK$アプリのために誤った通知を殺人的な方法でを管理します。しかしながら、問題点があります。この$PERFORMANCE＿TRACKER$は鷹の様に注意深くみるときだけ働いてしまい、そして$ERROR＿TRACKER$はあなたの受信箱をエラーで満たしてしまうことです。",
+    "description": "app description, paragraph 1",
+    "placeholders": {
+      "performance_tracker":  { "content": "NewRelic RPM" },
+      "error_tracker":        { "content": "Hoptoad" },
+      "error_tracker_maker":  { "content": "Thoughtbot" },
+      "framework":            { "content": "Rails" }
+    }
+  },
+
+  "long_description_p2": {
+    "message": "現在$EXT_NAME$で$DISTRACTING_WEBSITE$（または使用中のどんなブラウザ）から離れることなく、次のアプリパフォーマンスステイタスをあなたのエイ・ピー・アイから進出できます。",
+    "description": "app description, paragraph 2",
+    "placeholders": {
+      "ext_name":             { "content": "NewRelic + Hoptoad for Google Chrome™" },
+      "distracting_website":  { "content": "Hacker News" }
+    }
+  },
+
+  "long_description_p3": {
+    "message": "私たちはHTTPS接続を使って、$PERFORMANCE＿TRACKER$のAPIへ安全に接続し、あなたのアプリ・パフォーマンスを測定基準でコンテキスト表示します。また、あなたのアプリがプロダクションエラーに直面した際に$HOST＿BROWSER$通知を$ERROR＿TRACKER$を通してリアルタイムで表示します。一回で１０のアプリをモニターが可能です。",
+    "description": "app description, paragraph 3",
+    "placeholders": {
+      "performance_tracker":  { "content": "NewRelic RPM" },
+      "error_tracker":        { "content": "Hoptoad" },
+      "host_browser":         { "content": "Chrome" }
+    }
+  },
+
+  "long_description_p4": {
+    "message": "$EXT＿NAME$はアーラン、ジャヴァ、ジャヴァスクリプト、マイ・エス・キュー・エル、ピー・エイチピー,パイソン、ルビー、レイルズ、レディス、スカラ、アパッチでホストされているもの、エンジンエックス、ノードジェース、ユニコーンやヒューション・パッセンジャーウエブアプリケーションサービス等の言語で書かれたアプリを追跡できます。",
+    "description": "app description, paragraph 4",
+    "placeholders": {
+      "ext_name": { "content": "NewRelic + Hoptoad for Google Chrome™" }
+    }
+  }
+
+}

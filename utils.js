@@ -222,9 +222,18 @@ function signal_error( s ) {
   return undefined;
 }
 
+/* hack requrired to get jQuery to correctly decode (render) any
+ * html/unicode &entities; in translation strings.
+ */
+
+function decode_entities( s ) {
+  return $("<div/>").html( s ).text();
+}
+
 /* loop over all elements with @class attrs and look for any localizables,
  * and set their value from the locale-appropriate messages.json
  */
+
 function localize() {
   var localized_elements = 0;
   $("[class]").each( function() {
@@ -244,7 +253,7 @@ function localize() {
           if( val.match( /^l_/ )) {
             localized_elements ++;
             var key = val.replace( /^l_/, '' );
-            $(element).text( chrome.i18n.getMessage( key ));
+            $(element).text( decode_entities( chrome.i18n.getMessage( key )));
           }
         }
       }
