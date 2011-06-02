@@ -1,6 +1,11 @@
 desc "package up a clean chrome extension for distro, minus development files"
 task :package => :environment do
-  puts "packaging for upload to the developer portal"
+  puts "Packaging for upload to the Chrome Extension portal..."
+  puts
+
+  print "Have you checked in any pending changes and bumped the version number? [yN] "
+  continue = gets.strip
+  exit 1 unless continue == "y" or continue == "Y"
 
   # TODO: don't allow this to run if there are uncommited changes
 

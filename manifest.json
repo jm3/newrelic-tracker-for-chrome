@@ -1,7 +1,7 @@
 {
   "name":           "NewRelic + Hoptoad for Google Chrome™",
   "description":    "__MSG_ext_desc__",
-  "version":        "0.5.4",
+  "version":        "0.5.5",
   "default_locale": "en",
   "icons": { "16":  "/images/icons/app-16.jpg",
              "48":  "/images/icons/app-48.jpg",

@@ -1,3 +1,3 @@
 /* AUTO-GENERATED FILE; DO NOT EDIT */
-var git_version = 'ff6bbbe';
+var git_version = '711af30';
 var ext_version = '0.5.4';
