@@ -13,7 +13,7 @@ var HOPTOAD = {
   },
 
   api_endpoint: "https://ACCOUNT_NAME.hoptoadapp.com/",
-  
+
   response_slots: [ "id", "project-id", "created-at", "action", "error-class", "error-message", "file", "rails-env", "line-number", "most-recent-notice-at", "notices-count" ],
 
   build_cache: function() {
@@ -27,12 +27,12 @@ var HOPTOAD = {
 
   check_for_new_errors: function() {
     var ht = new Object();
-    
+
     if( !this.account_name() || !this.auth_token() )
       return;
     var errors_url = this.api_endpoint.replace( /ACCOUNT_NAME/, this.account_name()) +
       ("/errors.xml?auth_token=TOK").replace( /TOK/, this.auth_token() );
-    
+
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() { HOPTOAD.display_new_errors(xhr) };
     xhr.open("GET", errors_url, true);
@@ -53,9 +53,9 @@ var HOPTOAD = {
   display_new_errors: function( xhr ) {
     if( xhr.readyState != 4 ) return;
     if( xhr.status != 200 ) { c( "error! - " + xhr.status ); return; } // FIXME: handle / bubble up error
-    
+
     var errors = $(xhr.responseXML).find( "groups" ).find( "group" );
-    var errors_skipped = 0; 
+    var errors_skipped = 0;
     $.each( errors, function( i, error ) {
       if( !HOPTOAD.seen_error( $(error).find( "id" ).text()))
         HOPTOAD.display_error( error );
@@ -67,12 +67,12 @@ var HOPTOAD = {
 
   display_error: function( e ) {
     var e = $(e);
-    
-    var link_to_error = 
+
+    var link_to_error =
       this.api_endpoint.replace( /ACCOUNT_NAME/, this.account_name() )
       + "errors/" + e.find( "id" ).text();
     var qs = "link=" + escape( link_to_error);
-    
+
     // marshall the good bits from the XHR response object to query string
     $.each( this.response_slots, function(i,v) { qs += "&" + v + "=" + escape( e.find( v ).text() )});
     webkitNotifications.createHTMLNotification( "/screens/notification.html?" + qs ).show();
@@ -85,7 +85,7 @@ var HOPTOAD = {
     var link = get_param( "link" );
     $("#notification").append( "<a href='" + link + "' target='hoptoad'>" + mesg + "</a>");
     /*
-    * fields avail: 
+    * fields avail:
     * "id", "project-id", "created-at", "action", "error-class", "error-message", "file", "rails-env", "line-number", "most-recent-notice-at", "notices-count" ];
     * var error_markup = ""
     * $.each( this.response_slots, function(i,v) { error_markup += "<dt>" + v + "</dt><dd>" + get_param(v) + "</dd>" });
@@ -120,12 +120,12 @@ var NEWRELIC = {
     $("#newrelic_primary_app_ui label" ).addClass( "disabled" );
     if( xhr.readyState != 4 ) return;
     if( xhr.status != 200 || (! xhr.responseXML) ) { c( "error! - " + xhr.status ); return; } // FIXME handle error
-    
+
     var apps = $(xhr.responseXML).find( "accounts account applications application" );
-    
+
     if( apps.size() == 1 )
       return;
-    
+
     var index_set = false;
     for( var i = 0; i < apps.length; i++ ) {
       var name = $(apps[i]).find( "name" ).text();
@@ -136,12 +136,12 @@ var NEWRELIC = {
         index_set = true;
       }
     }
-    
+
     // since we couldn't find a match, the user's previously saved primary 
     // app has been deleted or renamed, so default to the first app.
     if( ! index_set )
       localStorage["newrelic_primary_app"] = $(apps[0]).find( "id" ).text();
-    
+
     $("#newrelic_primary_app" ).removeAttr( "disabled" );
     $("#newrelic_primary_app_ui label" ).removeClass( "disabled" );
   },
@@ -149,7 +149,7 @@ var NEWRELIC = {
   fetch_and_display_app_stats: function( callback ) {
     if( ! this.api_key())
       return signal_error( "First, enter your NewRelic API key." );
-    
+
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() { callback(xhr) };
     xhr.open("GET", this.api_endpoint + "accounts.xml?include=application_health", true);
@@ -160,7 +160,7 @@ var NEWRELIC = {
   display_all_app_stats: function() {
     if( ! this.api_key() )
       return signal_error( "First, enter your NewRelic API key." );
-    
+
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function( x ) {
       if( xhr.readyState != 4 ) return;
@@ -177,7 +177,7 @@ var NEWRELIC = {
     if( xhr.readyState != 4 ) return;
     if( xhr.status != 200 ) { c( "error! - " + xhr.status ); return; } // FIXME: handle / bubble up error
 
-    var apdex = 
+    var apdex =
       $(xhr.responseXML).
       find( "id:contains(" + NEWRELIC.primary_app() + ")" ).
       parent().
