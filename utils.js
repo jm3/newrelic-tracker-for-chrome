@@ -319,24 +319,3 @@ function get_param(name) {
   var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
-
-function track_using_GA() {
-  if( !( account_id = get_ga_account_id()))
-    return;
-  /* GA tracking */
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', account_id]);
-  _gaq.push(['_setCampNameKey',   'version-1']);
-  _gaq.push(['_setCampMediumKey', 'google-chrome']);
-  _gaq.push(['_setCampSourceKey', 'chrome-relic-extension']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = 'https://ssl.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-  })();
-}

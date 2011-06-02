@@ -17,6 +17,11 @@ task :package => :environment do
   FileUtils.mv "../GIT", ".git" rescue nil
   FileUtils.mv "../#{project}-#{version}.zip", "."
   `git co .gitignore README.markdown images/`
+
+  `echo '/* AUTO-GENERATED FILE; DO NOT EDIT */' > versions.js`
+  puts "git version: " + (git_version = `echo "var git = '\`git rev-parse --short HEAD\`';" >> versions.js`)
+  ext_version = `grep version manifest.json | awk '{print $2}'`.gsub(/[^0-9\.]/, '')
+  `echo "var ext_version = '#{ext_version}';" >> versions.js`
 end
 
 Rake::Task[:package].prerequisites.clear

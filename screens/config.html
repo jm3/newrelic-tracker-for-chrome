@@ -2,17 +2,22 @@
 <!-- by John Manoogian III / jm3 -->
 <html>
   <head>
-    <title>Chrome Relic - Edit API Key</title>
+    <title>Configure Settings</title>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js' type='text/javascript'></script> 
     <script src='/utils.js' type='text/javascript'></script> 
+    <script src='/versions.js' type='text/javascript'></script> 
     <script>
       $(document).ready(function() {
         localize();
         restore_options();
         $("#save_button").click( save_options );
-        track_using_GA();
       });
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', get_ga_account_id() ]);
+      _gaq.push(['_setCampNameKey',   'version-' + ext_version]); // loaded from versions.js
+      _gaq.push(['_trackPageview']);
     </script>
+    <script src='/mini-ssl-ga.js' type='text/javascript'></script> 
     <link href="theme.css" rel="stylesheet" type="text/css"> 
   </head>
 
