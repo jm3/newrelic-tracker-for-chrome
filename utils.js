@@ -1,6 +1,7 @@
 /* by John Manoogian III / jm3 */
 
 var DEBUG = true;
+const SESSION_SCOPE = 2;
 
 var HOPTOAD = {
   account_name: function() {
