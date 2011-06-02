@@ -1,19 +1,38 @@
 <!-- by John Manoogian III / jm3 -->
 <html>
   <head>
+    <title>Background Daemon</title>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js' type='text/javascript'></script> 
     <script src='js/utils.js' type='text/javascript'></script> 
+    <script src='js/versions.js' type='text/javascript'></script> 
     <script>
 
       var groundhog_seconds         = 60;
 
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', get_ga_account_id() ]);
+      _gaq.push(['_setCustomVar', 1, 'ext-version',  ext_version, SESSION_SCOPE ]);
+      _gaq.push(['_setCustomVar', 2, 'git-version',  git_version, SESSION_SCOPE ]);
+      if( NEWRELIC.api_key() )
+        _gaq.push(['_setCustomVar', 3, 'has-newrelic', 1, SESSION_SCOPE ]);
+      if( HOPTOAD.auth_token() )
+        _gaq.push(['_setCustomVar', 4, 'has-hoptoad',  1, SESSION_SCOPE ]);
+
+      _gaq.push(['_trackPageview']);
+
       var daemon = daemon || new function() {
         setInterval(
-          function() { NEWRELIC.fetch_and_display_app_stats( NEWRELIC.process_stats ); },
+          function() { 
+            NEWRELIC.fetch_and_display_app_stats( NEWRELIC.process_stats ); 
+            _gaq.push(['_trackEvent', 'ping-service', 'new-relic']);
+          },
           groundhog_seconds * 1000 
         );
         setInterval(
-          function() { HOPTOAD.check_for_new_errors(); },
+          function() { 
+            HOPTOAD.check_for_new_errors(); 
+            _gaq.push(['_trackEvent', 'ping-service', 'hoptoad']);
+          },
           groundhog_seconds * 1000 
         );
       };
@@ -21,6 +40,7 @@
       NEWRELIC.fetch_and_display_app_stats( NEWRELIC.process_stats );
       HOPTOAD.check_for_new_errors();
     </script>
+    <script src='js/mini-ssl-ga.js' type='text/javascript'></script> 
   </head>
   <body>
 
