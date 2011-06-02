@@ -211,7 +211,7 @@ function c( s ) {
 }
 
 function get_ga_account_id() {
-  return 'UA-228926-7';
+  return 'UA-23727290-1';
 }
 
 function signal_error( s ) {
