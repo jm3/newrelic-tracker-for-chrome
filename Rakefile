@@ -8,16 +8,17 @@ task :package => :environment do
   project_dir = File.expand_path( ".")
   developer_files = %w[.gitignore Rakefile README.markdown images/screenshot-setup.png images/screenshot-stats.png images/ui.psd]
 
+  # remove any development files that should not be packaged for upload;
+  # we'll recover them with git in a second
+  developer_files.map{ |d| File.delete( d )  rescue nil }
+  `rm *.zip`
+  FileUtils.mv ".git", "../GIT" rescue nil
+
   # cache current revision of code + extension as JS strings for usage tracking
   ext_version = `grep version manifest.json | awk '{print $2}'`.gsub(/"|,/, "").chomp
   `echo '/* AUTO-GENERATED FILE; DO NOT EDIT */' > js/versions.js`
   `echo "var git_version = '\`git rev-parse --short HEAD\`';" >> js/versions.js`
   `echo "var ext_version = '#{ext_version}';" >> js/versions.js`
-
-  # remove any development files that should not be packaged for upload;
-  # we'll recover them with git in a second
-  developer_files.map{ |d| File.delete( d )  rescue nil }
-  FileUtils.mv ".git", "../GIT" rescue nil
 
   # package directory for upload into a numbered zip
   Dir.chdir( ".." )
