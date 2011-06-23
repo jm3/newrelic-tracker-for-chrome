@@ -8,8 +8,9 @@ NewRelic performance monitoring within Google Chrome.
 
 ## Translations available:
  * English
+ * 日本語
 
-(Translations needed: am, es, fr, jp, pt)
+(Translations needed: am, es, fr, pt)
 
 ## License:
 
