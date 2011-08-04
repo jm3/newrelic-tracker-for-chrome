@@ -1,6 +1,7 @@
 ![Cool features](https://github.com/jm3/chrome-relic/raw/master/images/screenshot-setup.png)
 
 ## Chrome Relic.
+Get the extension here: [http://proof.ly/get-chrome-relic](http://proof.ly/get-chrome-relic)
 
 ![Sexy screenshots](https://github.com/jm3/chrome-relic/raw/master/images/screenshot-stats.png)
 
