@@ -1,6 +1,8 @@
-# Chrome Relic.
+# New Relic + Airbrake for Google Chrome:
 
-## What it does:
+## Real-time Chrome notifications of errors from your app.
+
+### Features:
 * Delivers real-time native Chrome notifications of errors and exceptions in your app
 * Requires no passwords - uses your [NewRelic](http://newrelic.com) and [Airbrake](http://airbrake.io) API keys
 * Has a cool skull icon
