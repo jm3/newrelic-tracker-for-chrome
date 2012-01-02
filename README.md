@@ -1,8 +1,6 @@
-## Chrome Relic.
+# Chrome Relic.
 
-![Cool features](https://github.com/jm3/chrome-relic/raw/master/images/screenshot-setup.png)
-
-### What it does:
+## What it does:
 * Delivers real-time native Chrome notifications of errors and exceptions in your app
 * Requires no passwords - uses your [NewRelic](http://newrelic.com) and [Airbrake](http://airbrake.io) API keys
 * Has a cool skull icon
@@ -10,8 +8,6 @@
 Get the extension here: [http://proof.ly/get-chrome-relic](http://proof.ly/get-chrome-relic)
 
 ![Sexy screenshots](https://github.com/jm3/chrome-relic/raw/master/images/screenshot-stats.png)
-
-NewRelic performance monitoring within Google Chrome.
 
 ## Translations available:
  * English
@@ -66,6 +62,7 @@ Now accepting new language translations! Spanish, French, German,
 and Portugese especially welcomed. To add a translation for your
 language, please see: https://github.com/jm3/chrome-relic/issues/12
 
+![Cool features](https://github.com/jm3/chrome-relic/raw/master/images/screenshot-setup.png)
 
 ## License:
 
