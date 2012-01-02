@@ -3,21 +3,21 @@
 var DEBUG = true;
 const SESSION_SCOPE = 2;
 
-var HOPTOAD = {
+var AIRBRAKE = {
   account_name: function() {
-    return localStorage["hoptoad_account_name"];
+    return localStorage["airbrake_account_name"];
   },
 
   auth_token: function() {
-    return localStorage["hoptoad_auth_token"];
+    return localStorage["airbrake_auth_token"];
   },
 
-  api_endpoint: "https://ACCOUNT_NAME.hoptoadapp.com/",
+  api_endpoint: "https://ACCOUNT_NAME.airbrake.io/",
 
   response_slots: [ "id", "project-id", "created-at", "action", "error-class", "error-message", "file", "rails-env", "line-number", "most-recent-notice-at", "notices-count" ],
 
   build_cache: function() {
-    var c = localStorage["hoptoad_cache"];
+    var c = localStorage["airbrake_cache"];
     if( !c ) {
       return new Array();
     } else {
@@ -34,18 +34,18 @@ var HOPTOAD = {
       ("/errors.xml?auth_token=TOK").replace( /TOK/, this.auth_token() );
 
     var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() { HOPTOAD.display_new_errors(xhr) };
+    xhr.onreadystatechange = function() { AIRBRAKE.display_new_errors(xhr) };
     xhr.open("GET", errors_url, true);
     xhr.send();
   },
 
   seen_error: function( id ) {
-    var hoptoad_cache = hoptoad_cache || this.build_cache();
-    if( $.inArray( id, hoptoad_cache ) != -1 )
+    var airbrake_cache = airbrake_cache || this.build_cache();
+    if( $.inArray( id, airbrake_cache ) != -1 )
       return id;
     else {
-      hoptoad_cache.push( id );
-      localStorage["hoptoad_cache"] = hoptoad_cache.join(' ');
+      airbrake_cache.push( id );
+      localStorage["airbrake_cache"] = airbrake_cache.join(' ');
       return;
     }
   },
@@ -57,12 +57,12 @@ var HOPTOAD = {
     var errors = $(xhr.responseXML).find( "groups" ).find( "group" );
     var errors_skipped = 0;
     $.each( errors, function( i, error ) {
-      if( !HOPTOAD.seen_error( $(error).find( "id" ).text()))
-        HOPTOAD.display_error( error );
+      if( !AIRBRAKE.seen_error( $(error).find( "id" ).text()))
+        AIRBRAKE.display_error( error );
       else
         errors_skipped = i;
     });
-      c( "Skipped " + errors_skipped + " previously seen Hoptoad errors." );
+      c( "Skipped " + errors_skipped + " previously seen Airbrake errors." );
   },
 
   display_error: function( e ) {
@@ -83,7 +83,7 @@ var HOPTOAD = {
     if( mesg ) // add spacing so HTML can wrap the errors properly
       mesg = mesg.replace(/::/g, ":: ").replace(/(\w)\/(\w)/g, "$1/ $2").replace(/(\w)Error/g, "$1 Error");
     var link = get_param( "link" );
-    $("#notification").append( "<a href='" + link + "' target='hoptoad'>" + mesg + "</a>");
+    $("#notification").append( "<a href='" + link + "' target='airbrake'>" + mesg + "</a>");
     /*
     * fields avail:
     * "id", "project-id", "created-at", "action", "error-class", "error-message", "file", "rails-env", "line-number", "most-recent-notice-at", "notices-count" ];
@@ -94,7 +94,7 @@ var HOPTOAD = {
   },
 
   fetch_app_list: function( callback ) {
-    // TODO: http://your_account.hoptoadapp.com/data_api/v1/projects.xml
+    // TODO: http://your_account.airbrake.io/data_api/v1/projects.xml
   },
 
   END: undefined
@@ -298,7 +298,7 @@ function persist_select( s ) {
 }
 
 function save_options() {
-  persist_fields( ["newrelic_api_key", "hoptoad_account_name", "hoptoad_auth_token"] );
+  persist_fields( ["newrelic_api_key", "airbrake_account_name", "airbrake_auth_token"] );
   persist_select( "newrelic_primary_app" )
   window.close();
 }
@@ -312,8 +312,8 @@ function restore_field( f ) {
 function restore_options() {
   if( restore_field( "newrelic_api_key" ))
     NEWRELIC.fetch_and_display_app_stats( NEWRELIC.parse_apps_and_populate_pulldown );
-  restore_field( "hoptoad_account_name" );
-  restore_field( "hoptoad_auth_token" );
+  restore_field( "airbrake_account_name" );
+  restore_field( "airbrake_auth_token" );
 }
 
 function get_param(name) {

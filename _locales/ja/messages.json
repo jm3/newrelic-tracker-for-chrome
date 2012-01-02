@@ -3,7 +3,7 @@
     "message": "$PERFORMANCE_TRACKER$と$ERROR_TRACKER$を使って、トラック・アプリ・パフォーマンス、そしてユーザーの幸せを全てのウエブ・アプリへリアルタイムで！$HEROKU$のサポートを今から！",
     "placeholders": {
       "performance_tracker":  { "content": "NewRelic RPM" },
-      "error_tracker":        { "content": "Hoptoad" },
+      "error_tracker":        { "content": "Airbrake" },
       "heroku":               { "content": "Heroku" }
     }
   },
@@ -52,7 +52,7 @@
 	"message": "$TRACKING_SERVICE$ アカウント名",
     "placeholders": {
       "tracking_service": {
-        "content": "Hoptoad"
+        "content": "Airbrake"
       }
     }
   },
@@ -61,7 +61,7 @@
 	"message": "$TRACKING_SERVICE$ オートトーケン",
     "placeholders": {
       "tracking_service": {
-        "content": "Hoptoad"
+        "content": "Airbrake"
       }
     }
   },
@@ -98,7 +98,7 @@
     "description": "tell user where to find their API key",
     "placeholders": {
       "error_tracker": {
-        "content": "Hoptoad"
+        "content": "Airbrake"
       }
     }
   },
@@ -143,7 +143,7 @@
     "description": "app description, paragraph 1",
     "placeholders": {
       "performance_tracker":  { "content": "NewRelic RPM" },
-      "error_tracker":        { "content": "Hoptoad" },
+      "error_tracker":        { "content": "Airbrake" },
       "error_tracker_maker":  { "content": "Thoughtbot" },
       "framework":            { "content": "Rails" }
     }
@@ -153,7 +153,7 @@
     "message": "現在$EXT_NAME$で$DISTRACTING_WEBSITE$（または使用中のどんなブラウザ）から離れることなく、次のアプリパフォーマンスステイタスをあなたのエイ・ピー・アイから進出できます。",
     "description": "app description, paragraph 2",
     "placeholders": {
-      "ext_name":             { "content": "NewRelic + Hoptoad for Google Chrome™" },
+      "ext_name":             { "content": "NewRelic + Airbrake for Google Chrome™" },
       "distracting_website":  { "content": "Hacker News" }
     }
   },
@@ -163,7 +163,7 @@
     "description": "app description, paragraph 3",
     "placeholders": {
       "performance_tracker":  { "content": "NewRelic RPM" },
-      "error_tracker":        { "content": "Hoptoad" },
+      "error_tracker":        { "content": "Airbrake" },
       "host_browser":         { "content": "Chrome" }
     }
   },
@@ -172,7 +172,7 @@
     "message": "$EXT＿NAME$はアーラン、ジャヴァ、ジャヴァスクリプト、マイ・エス・キュー・エル、ピー・エイチピー,パイソン、ルビー、レイルズ、レディス、スカラ、アパッチでホストされているもの、エンジンエックス、ノードジェース、ユニコーンやヒューション・パッセンジャーウエブアプリケーションサービス等の言語で書かれたアプリを追跡できます。",
     "description": "app description, paragraph 4",
     "placeholders": {
-      "ext_name": { "content": "NewRelic + Hoptoad for Google Chrome™" }
+      "ext_name": { "content": "NewRelic + Airbrake for Google Chrome™" }
     }
   }
 

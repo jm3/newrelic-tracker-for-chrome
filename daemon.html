@@ -15,8 +15,8 @@
       _gaq.push(['_setCustomVar', 2, 'git-version',  git_version, SESSION_SCOPE ]);
       if( NEWRELIC.api_key() )
         _gaq.push(['_setCustomVar', 3, 'has-newrelic', 1, SESSION_SCOPE ]);
-      if( HOPTOAD.auth_token() )
-        _gaq.push(['_setCustomVar', 4, 'has-hoptoad',  1, SESSION_SCOPE ]);
+      if( AIRBRAKE.auth_token() )
+        _gaq.push(['_setCustomVar', 4, 'has-airbrake',  1, SESSION_SCOPE ]);
 
       _gaq.push(['_trackPageview']);
 
@@ -30,15 +30,15 @@
         );
         setInterval(
           function() { 
-            HOPTOAD.check_for_new_errors(); 
-            _gaq.push(['_trackEvent', 'ping-service', 'hoptoad']);
+            AIRBRAKE.check_for_new_errors(); 
+            _gaq.push(['_trackEvent', 'ping-service', 'airbrake']);
           },
           groundhog_seconds * 1000 
         );
       };
       // on initial load
       NEWRELIC.fetch_and_display_app_stats( NEWRELIC.process_stats );
-      HOPTOAD.check_for_new_errors();
+      AIRBRAKE.check_for_new_errors();
     </script>
     <script src='js/mini-ssl-ga.js' type='text/javascript'></script> 
   </head>
