@@ -2,11 +2,10 @@
 
 ![Cool features](https://github.com/jm3/chrome-relic/raw/master/images/screenshot-setup.png)
 
-### What it does
-* get a nearly real-time notification of errors and exceptions in your app, no email needed
-* uses native chrome notifications
-* no password required - uses your [NewRelic](http://newrelic.com) and [Airbrake](http://airbrake.io) API keys
-* has a cool skull icon
+### What it does:
+* Delivers real-time native Chrome notifications of errors and exceptions in your app
+* Requires no passwords - uses your [NewRelic](http://newrelic.com) and [Airbrake](http://airbrake.io) API keys
+* Has a cool skull icon
 
 Get the extension here: [http://proof.ly/get-chrome-relic](http://proof.ly/get-chrome-relic)
 
