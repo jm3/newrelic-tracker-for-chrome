@@ -49,7 +49,7 @@
   },
 
   "error_tracking_account_name": {
-	"message": "$TRACKING_SERVICE$ account name",
+	"message": "$TRACKING_SERVICE$ subdomain",
     "placeholders": {
       "tracking_service": {
         "content": "Airbrake"
