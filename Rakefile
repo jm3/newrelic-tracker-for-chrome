@@ -35,6 +35,8 @@ task :package => :environment do
   FileUtils.mv "../#{project}-#{ext_version}.zip", "."
   `git co .gitignore Rakefile README.md images/`
 
+  puts "\n\n\nopen https://chrome.google.com/webstore/developer/dashboard\n\n"
+
 end
 
 Rake::Task[:package].prerequisites.clear
