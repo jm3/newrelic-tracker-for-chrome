@@ -11,7 +11,7 @@ task :package => :environment do
 
   project = "chrome-relic"
   project_dir = File.expand_path( ".")
-  developer_files = %w[.gitignore Rakefile README.markdown images/screenshot-setup.png images/screenshot-stats.png images/ui.psd]
+  developer_files = %w[.gitignore Rakefile README.md images/screenshot-setup.png images/screenshot-stats.png images/ui.psd]
 
   # remove any development files that should not be packaged for upload;
   # we'll recover them with git in a second
@@ -33,7 +33,7 @@ task :package => :environment do
   Dir.chdir( project_dir  )
   FileUtils.mv "../GIT", ".git" rescue nil
   FileUtils.mv "../#{project}-#{ext_version}.zip", "."
-  `git co .gitignore Rakefile README.markdown images/`
+  `git co .gitignore Rakefile README.md images/`
 
 end
 
