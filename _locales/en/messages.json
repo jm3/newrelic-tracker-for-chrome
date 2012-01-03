@@ -58,7 +58,7 @@
   },
 
   "error_tracking_auth_token": {
-	"message": "$TRACKING_SERVICE$ auth token",
+	"message": "$TRACKING_SERVICE$ auth token (account level)",
     "placeholders": {
       "tracking_service": {
         "content": "Airbrake"
